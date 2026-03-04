@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Melao de Elena y Marino</title>
+    <!-- Importamos fuentes elegantes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        :root {
+            --rosa-oscuro: #880e4f; /* Color principal solicitado */
+            --rosa-claro: #fce4ec;  /* Fondo suave */
+            --rosa-boton: #e91e63;  /* Color botón WhatsApp */
+            --blanco: #ffffff;
+            --texto: #333333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--rosa-claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* --- ENCABEZADO (HEADER) --- */
+        header {
+            /* Foto de postre real de fondo */
+            background-image: linear-gradient(rgba(136, 14, 79, 0.7), rgba(136, 14, 79, 0.7)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive; /* Fuente estilo manuscrito */
+            color: var(--blanco);
+            font-size: 3.5rem; /* Letras grandes */
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            padding: 0 20px;
+        }
+
+        /* --- INTRODUCCIÓN --- */
+        .intro {
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--blanco);
+            margin: -30px 20px 20px 20px; /* Superposición suave */
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro h2 {
+            color: var(--rosa-oscuro);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* --- PRODUCTOS (ONDULADOS) --- */
+        .productos {
+            padding: 40px 10px;
+            text-align: center;
+        }
+
+        .productos h3 {
+            color: var(--rosa-oscuro);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .galeria {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Clase para crear el efecto ondulado (blob) */
+        .foto-ondulada {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(136, 14, 79, 0.2);
+            border: 3px solid var(--blanco);
+        }
+
+        .foto-ondulada:hover {
+            transform: scale(1.1);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        /* --- HORARIO Y UBICACIÓN (TARJETAS) --- */
+        .info-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .tarjeta {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            border: 2px solid var(--rosa-claro);
+            box-shadow: 0 5px 15px rgba(136, 14, 79, 0.1);
+        }
+
+        .tarjeta h4 {
+            color: var(--rosa-oscuro);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tarjeta p {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* --- REDES SOCIALES --- */
+        .redes {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .redes a {
+            text-decoration: none;
+            color: var(--rosa-oscuro);
+            font-weight: bold;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- BOTÓN WHATSAPP --- */
+        .btn-whatsapp {
+            display: block;
+            width: 90%;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 18px;
+            background-color: var(--rosa-boton);
+            color: var(--blanco);
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+            transition: transform 0.2s;
+            animation: latido 2s infinite;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #c2185b;
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer pequeño */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con Foto y Nombre -->
+    <header>
+        <h1>El Melao de<br>Elena y Marino</h1>
+    </header>
+
+    <!-- Introducción -->
+    <section class="intro">
+        <h2>Sabor que enamora, dulzura que se recuerda</h2>
+        <p>En <strong>El Melao de Elena y Marino</strong> nos especializamos en la elaboración de bizcochos y postres artesanales, preparados con amor, ingredientes de calidad y ese toque casero que marca la diferencia. Endulzamos tus momentos especiales y tu día a día con sabores únicos e irresistibles.</p>
+    </section>
+
+    <!-- Productos (5 imágenes onduladas) -->
+    <section class="productos">
+        <h3>🍰 Nuestros Productos</h3>
+        <div class="galeria">
+            <!-- Imagen 1 -->
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pastel" class="foto-ondulada">
+            <!-- Imagen 2 -->
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Bizcocho" class="foto-ondulada">
+            <!-- Imagen 3 -->
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Postre" class="foto-ondulada">
+            <!-- Imagen 4 -->
+            <img src="https://images.unsplash.com/photo-1551024601-562963525c5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Dulce" class="foto-ondulada">
+            <!-- Imagen 5 -->
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Postre Artesanal" class="foto-ondulada">
+        </div>
+    </section>
+
+    <!-- Horario y Ubicación (Decorados) -->
+    <section class="info-container">
+        <!-- Tarjeta Horario -->
+        <div class="tarjeta">
+            <h4>🕒 Horario de Atención</h4>
+            <p>Lunes a Domingo</p>
+            <p style="color: var(--rosa-oscuro);">8:00 a.m. – 8:00 p.m.</p>
+        </div>
+
+        <!-- Tarjeta Ubicación -->
+        <div class="tarjeta">
+            <h4>📍 Ubicación</h4>
+            <p>Calle Puente Blanco, No. 22A</p>
+            <p>Los Libertadores, Los Alcarrizos</p>
+        </div>
+    </section>
+
+    <!-- Redes Sociales -->
+    <section class="redes">
+        <h3>🌸 Síguenos</h3>
+        <p>Instagram: <a href="https://instagram.com/elmelaodeelena" target="_blank">@elmelaodeelena</a></p>
+        <p>Facebook: <a href="#" target="_blank">Bizcocho Elena</a></p>
+    </section>
+
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/18297950756" class="btn-whatsapp" target="_blank">
+        Haz tu pedido ahora y escríbenos directamente por WhatsApp
+    </a>
+
+    <footer>
+        <p>© 2023 El Melao de Elena y Marino. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
